@@ -30,8 +30,9 @@ export default function Home() {
 
   const saveFund = async (fund) => {
     try {
+      const API = import.meta.env.VITE_API_BASE_URL;
       await axios.post(
-        "/api/funds/save",
+        `${API}/funds/save`,
         {
           schemeCode: fund.schemeCode,
           schemeName: fund.schemeName,

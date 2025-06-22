@@ -26,7 +26,8 @@ export default function SavedFunds() {
     if (!confirm) return;
 
     try {
-      await axios.delete(`/api/funds/${id}`, {
+      const API = import.meta.env.VITE_API_BASE_URL;
+      await axios.delete(`${API}/funds/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setSavedFunds((prev) => prev.filter((f) => f._id !== id));
