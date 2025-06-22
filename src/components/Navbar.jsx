@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 export default function Navbar() {
   const { user, setUser } = useAuth();
   const logout = () => {
     localStorage.removeItem("token");
     setUser(null);
+    toast.success("Logout successful!");
   };
 
   return (

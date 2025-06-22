@@ -10,7 +10,8 @@ export default function SavedFunds() {
 
   useEffect(() => {
     const fetchSaved = async () => {
-      const res = await axios.get("/api/funds/saved", {
+      const API = import.meta.env.VITE_API_BASE_URL;
+      const res = await axios.get(`${API}/funds/saved`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setSavedFunds(res.data);

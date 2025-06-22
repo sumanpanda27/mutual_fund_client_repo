@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -11,10 +12,16 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("/api/auth/login", { email, password });
-    localStorage.setItem("token", res.data.token);
-    setUser(res.data.user);
-    navigate("/");
+    try {
+      const API = import.meta.env.VITE_API_BASE_URL;
+      const res = await axios.post(`${API}/auth/login`, { email, password });
+      localStorage.setItem("token", res.data.token);
+      setUser(res.data.user);
+      toast.success("Login successful!");
+      navigate("/");
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Login failed");
+    }
   };
 
   return (

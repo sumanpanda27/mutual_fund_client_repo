@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -10,8 +11,14 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("/api/auth/register", { username, email, password });
-    navigate("/login");
+    try {
+      const API = import.meta.env.VITE_API_BASE_URL;
+      await axios.post(`${API}/auth/register`, { username, email, password });
+      toast.success("Registration successful! Please log in.");
+      navigate("/login");
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Registration failed");
+    }
   };
 
   return (
