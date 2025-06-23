@@ -1,12 +1,52 @@
-# React + Vite
+# Mutual Fund Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple MERN stack application that allows users to:
 
-Currently, two official plugins are available:
+- Register and log in
+- Search for mutual funds
+- View mutual fund details
+- Save and remove favorite funds
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
 
-## Expanding the ESLint configuration
+- Frontend: React + Vite + Tailwind CSS
+- Backend: Node.js + Express.js
+- Database: MongoDB Atlas
+- Authentication: JWT + bcrypt
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How to Run
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/sumanpanda27/mutual_fund_client_repo
+   git clone https://github.com/sumanpanda27/mutual_funds_server_repo
+   ```
+
+2. Set up the backend:
+
+   ```bash
+   cd mutual_funds_server_repo
+   npm install
+   # Create a .env file with MONGO_URI, JWT_SECRET, PORT
+   npm run dev
+   ```
+
+3. Set up the frontend:
+
+   ```bash
+   cd mutual_fund_client_repo
+   npm install
+   # Create a .env file with VITE_API_BASE_URL
+   npm run dev
+   ```
+
+## Deployed Links
+
+- **Frontend:** [https://mutual-fund-client-repo.onrender.com](https://mutual-fund-client-repo.onrender.com)
+- **Backend:** [https://mutual-funds-server-repo.onrender.com](https://mutual-funds-server-repo.onrender.com)
+
+## License
+
+MIT © 2025
+
